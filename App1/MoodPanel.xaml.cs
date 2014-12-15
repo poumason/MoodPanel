@@ -24,11 +24,18 @@ namespace App1
     {
         public delegate void MoodValueChangedEvent(Object sender, Int32 value);
         public event MoodValueChangedEvent MoodValueChanged = null;
-        private Int32 oriMoodValue = 0;
+        private Int32 oriMoodValue = 15;
+        private Int32 oriX = 42;
+        private Int32 oriX = 42;
 
         public MoodPanel()
         {
             this.InitializeComponent();
+        }
+
+        public Point GetTargetPoint()
+        {
+            return new Point(oriX, oriY);
         }
 
         private void CalcuteMood(Point point)
@@ -82,11 +89,11 @@ namespace App1
 
             Double cos = Math.Cos(rad - offsetPi);
             Double sin = Math.Sin(rad - offsetPi);
-            Double x = 150 + (125 * cos);
-            Double y = 150 - (125 * sin);
+            oriX = 150 + (125 * cos);
+            oriY = 150 - (125 * sin);
 
-            Canvas.SetLeft(btnMood, x - 20);
-            Canvas.SetTop(btnMood, y - 20);
+            Canvas.SetLeft(btnMood, oriX - 20);
+            Canvas.SetTop(btnMood, oriY - 20);
 
             Int32 newMoodValue = GetMoodValue(angle);
             if (newMoodValue != oriMoodValue)
