@@ -25,8 +25,8 @@ namespace App1
         public delegate void MoodValueChangedEvent(Object sender, Int32 value);
         public event MoodValueChangedEvent MoodValueChanged = null;
         private Int32 oriMoodValue = 15;
-        private Int32 oriX = 42;
-        private Int32 oriX = 42;
+        private double oriX = 42;
+        private double oriY = 42;
 
         public MoodPanel()
         {
